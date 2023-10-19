@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
 import CategoryTextSlider from '../Components/Home/CategoryTextSlider';
 import Color from '../Shared/Color';
-import { Ionicons } from '@expo/vector-icons';
 
 const Home = () => {
   return (
