@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import CategoryTextSlider from '../Components/Home/CategoryTextSlider';
+import TopHeadlineSlider from '../Components/Home/TopHeadlineSlider';
 import Color from '../Shared/Color';
 
 const Home = () => {
@@ -19,7 +20,12 @@ const Home = () => {
         <Text style={Styles.appName}>Tip News</Text>
         <Ionicons name='notifications-outline' size={25} color='black' />
       </View>
+
+      {/* Category List */}
       <CategoryTextSlider />
+
+      {/* Top Headline Slider */}
+      <TopHeadlineSlider />
     </View>
   );
 };
