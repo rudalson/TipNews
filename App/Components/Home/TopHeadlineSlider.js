@@ -7,25 +7,10 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import GlobalApi from '../../Services/GlobalApi';
+
 import Color from '../../Shared/Color';
 
-const TopHeadlineSlider = () => {
-  const [newsList, setNewsList] = useState([]);
-
-  useEffect(() => {
-    getTopHeadline();
-  }, []);
-
-  const getTopHeadline = async () => {
-    const result = await GlobalApi.getTopHeadline;
-    console.log({ result });
-
-    if (result.ok) {
-      setNewsList(result.data.articles);
-    }
-  };
-
+const TopHeadlineSlider = ({ newsList }) => {
   return (
     <View style={{ marginTop: 15 }}>
       <FlatList
