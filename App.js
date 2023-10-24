@@ -1,19 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
-import Home from './App/Screen/Home';
+import { SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+
+import HomeNavigator from './App/Routes/HomeNavigator';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Home />
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingTop: 34,
+        marginHorizontal: 15,
+      }}
+    >
+      <NavigationContainer>
+        <HomeNavigator />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 24,
-  },
-});

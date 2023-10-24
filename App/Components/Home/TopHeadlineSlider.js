@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
   FlatList,
   View,
@@ -11,6 +12,8 @@ import {
 import Color from '../../Shared/Color';
 
 const TopHeadlineSlider = ({ newsList }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ marginTop: 15 }}>
       <FlatList
@@ -19,6 +22,9 @@ const TopHeadlineSlider = ({ newsList }) => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('read-news', { news: item });
+            }}
             style={{
               width: Dimensions.get('screen').width * 0.8,
               marginRight: 15,

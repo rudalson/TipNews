@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{ backgroundColor: Color.white }}>
       <View
         style={{
           display: 'flex',
