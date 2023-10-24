@@ -1,5 +1,5 @@
-import { SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import HomeNavigator from './App/Routes/HomeNavigator';
 
@@ -9,7 +9,6 @@ export default function App() {
       style={{
         flex: 1,
         backgroundColor: '#fff',
-        paddingTop: 34,
         marginHorizontal: 15,
       }}
     >

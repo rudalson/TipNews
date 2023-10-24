@@ -15,7 +15,7 @@ const TopHeadlineSlider = ({ newsList }) => {
   const navigation = useNavigation();
 
   return (
-    <View style={{ marginTop: 15 }}>
+    <View style={{ marginTop: 10 }}>
       <FlatList
         data={newsList}
         horizontal
