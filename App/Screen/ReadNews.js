@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Share, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Color from '../Shared/Color';
@@ -12,6 +12,10 @@ const ReadNews = () => {
   useEffect(() => {
     console.log(news);
   }, []);
+
+  const shareNews = () => {
+    Share.share({ message: news.title + '\nRead More' + news.description });
+  };
 
   return (
     <View style={{ backgroundColor: Color.white, flex: 1 }}>
@@ -31,7 +35,11 @@ const ReadNews = () => {
         >
           <Ionicons name='arrow-back' size={28} color='black' />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            shareNews();
+          }}
+        >
           <Ionicons name='share-outline' size={28} color='black' />
         </TouchableOpacity>
       </View>
