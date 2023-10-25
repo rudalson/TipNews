@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   ActivityIndicator,
   Dimensions,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native-virtualized-view';
 
 import CategoryTextSlider from '../Components/Home/CategoryTextSlider';
 import TopHeadlineSlider from '../Components/Home/TopHeadlineSlider';
@@ -36,7 +36,6 @@ const Home = () => {
 
   const getTopHeadline = async () => {
     const result = await GlobalApi.getTopHeadline;
-    console.log({ result });
 
     if (result.ok) {
       setNewsList(result.data.articles);
@@ -44,7 +43,7 @@ const Home = () => {
   };
 
   return (
-    <ScrollView style={{ backgroundColor: Color.white }}>
+    <View style={{ backgroundColor: Color.white }}>
       <View
         style={{
           display: 'flex',
@@ -53,7 +52,7 @@ const Home = () => {
           justifyContent: 'space-between',
         }}
       >
-        <Text style={Styles.appName}>Tip News</Text>
+        <Text style={Styles.appName}>Top News</Text>
         <Ionicons name='notifications-outline' size={25} color='black' />
       </View>
 
@@ -71,15 +70,15 @@ const Home = () => {
           color={Color.primary}
         />
       ) : (
-        <>
+        <ScrollView>
           {/* Top Headline Slider */}
           <TopHeadlineSlider newsList={newsList} />
 
           {/* Headline list */}
           <HeadlineList newsList={newsList} />
-        </>
+        </ScrollView>
       )}
-    </ScrollView>
+    </View>
   );
 };
 
