@@ -6,9 +6,12 @@ const api = create({
   baseURL: 'https://newsapi.org/v2',
 });
 
-const apiParams = '?country=kr&apiKey=';
-const apiKey = '';
+// const apiParams =
+const apiCountry = 'country=kr';
+const apiKey = 'apiKey=';
 
-const getTopHeadline = api.get('/top-headlines' + apiParams + apiKey);
+const getTopHeadline = api.get('/top-headlines?' + apiCountry + '&' + apiKey);
+const getByCategory = (category) =>
+  api.get('/everything?q=' + category + '&' + apiKey);
 
-export default { getTopHeadline };
+export default { getTopHeadline, getByCategory };

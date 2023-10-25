@@ -9,7 +9,7 @@ import {
 
 import Color from '../../Shared/Color';
 
-function CategoryTextSlider() {
+function CategoryTextSlider({ selectCategory }) {
   const [active, setActive] = useState(1);
 
   const categoryList = [
@@ -32,7 +32,12 @@ function CategoryTextSlider() {
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => onCategoryClick(item.id)}>
+          <TouchableOpacity
+            onPress={() => {
+              onCategoryClick(item.id);
+              selectCategory(item.name);
+            }}
+          >
             <Text
               style={
                 item.id === active ? Styles.selectText : Styles.unselectText
