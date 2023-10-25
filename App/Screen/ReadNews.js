@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { Image, Share, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as WebBrowser from 'expo-web-browser';
 
 import Color from '../Shared/Color';
 
@@ -63,16 +64,22 @@ const ReadNews = () => {
       >
         {news.description}
       </Text>
-      <Text
-        style={{
-          marginTop: 10,
-          fontSize: 16,
-          color: Color.primary,
-          fontWeight: 'bold',
+      <TouchableOpacity
+        onPress={() => {
+          WebBrowser.openBrowserAsync(news.url);
         }}
       >
-        Read More
-      </Text>
+        <Text
+          style={{
+            marginTop: 10,
+            fontSize: 16,
+            color: Color.primary,
+            fontWeight: 'bold',
+          }}
+        >
+          Read More
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
