@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import Color from '../../Shared/Color';
 
 const HeadlineList = ({ newsList }) => {
+  const navigation = useNavigation();
+
   return (
     <View>
       <FlatList
@@ -18,6 +22,9 @@ const HeadlineList = ({ newsList }) => {
               }}
             />
             <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('read-news', { news: item });
+              }}
               style={{ marginTop: 15, display: 'flex', flexDirection: 'row' }}
             >
               <Image

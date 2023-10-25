@@ -1,6 +1,13 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { Image, Share, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Share,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 
@@ -19,7 +26,7 @@ const ReadNews = () => {
   };
 
   return (
-    <View style={{ backgroundColor: Color.white, flex: 1 }}>
+    <ScrollView style={{ backgroundColor: Color.white, flex: 1 }}>
       <View
         style={{
           marginTop: 10,
@@ -80,7 +87,7 @@ const ReadNews = () => {
           Read More
         </Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
