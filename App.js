@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 import HomeNavigator from './App/Routes/HomeNavigator';
+import Color from './App/Shared/Color';
 
 export default function App() {
   return (
@@ -9,8 +10,7 @@ export default function App() {
       <SafeAreaView
         style={{
           flex: 1,
-          backgroundColor: '#fff',
-          marginHorizontal: 15,
+          backgroundColor: Color.bg1,
         }}
       >
         <NavigationContainer>

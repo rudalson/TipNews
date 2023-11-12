@@ -39,14 +39,19 @@ const TopHeadlineSlider = ({ newsList }) => {
             />
             <Text
               numberOfLines={3}
-              style={{ marginTop: 10, fontSize: 23, fontWeight: '800' }}
+              style={{
+                marginTop: 10,
+                fontSize: 23,
+                fontWeight: '800',
+                color: Color.basicText1,
+              }}
             >
               {item.title}
             </Text>
             <Text
               style={{
                 marginTop: 5,
-                color: Color.primary,
+                color: Color.selectText2,
               }}
             >
               {item?.source?.name}

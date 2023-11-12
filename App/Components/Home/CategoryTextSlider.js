@@ -57,13 +57,13 @@ const Styles = StyleSheet.create({
     marginRight: 15,
     fontSize: 20,
     fontWeight: '800',
-    color: Color.gray,
+    color: Color.basicText1,
   },
   selectText: {
     marginRight: 15,
     fontSize: 20,
     fontWeight: 'bold',
-    color: Color.primary,
+    color: Color.selectText2,
   },
 });
 

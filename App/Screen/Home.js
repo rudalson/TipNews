@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  ActivityIndicator,
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-virtualized-view';
 
@@ -43,51 +37,56 @@ const Home = () => {
   };
 
   return (
-    <View style={{ backgroundColor: Color.white }}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Text style={Styles.appName}>Top News</Text>
-        <Ionicons name='notifications-outline' size={25} color='black' />
-      </View>
+    <View style={{ backgroundColor: Color.bg1 }}>
+      <View style={{ marginHorizontal: 16 }}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: 'bold',
+              color: Color.title,
+            }}
+          >
+            Top News
+          </Text>
+          <Ionicons name='notifications-outline' size={25} color='gray' />
+        </View>
 
-      {/* Category List */}
-      <CategoryTextSlider
-        selectCategory={(category) => {
-          console.log({ category });
-          getNewsByCategory(category);
-        }}
-      />
-      {loading ? (
-        <ActivityIndicator
-          style={{ marginTop: Dimensions.get('screen').height * 0.4 }}
-          size={'large'}
-          color={Color.primary}
+        {/* Category List */}
+        <CategoryTextSlider
+          selectCategory={(category) => {
+            // console.log({ category });
+            getNewsByCategory(category);
+          }}
         />
-      ) : (
-        <ScrollView>
-          {/* Top Headline Slider */}
-          <TopHeadlineSlider newsList={newsList} />
 
-          {/* Headline list */}
-          <HeadlineList newsList={newsList} />
-        </ScrollView>
-      )}
+        {loading ? (
+          <ActivityIndicator
+            style={{
+              padding: Dimensions.get('screen').height * 0.4,
+            }}
+            size={'large'}
+            color={Color.basicText1}
+          />
+        ) : (
+          <ScrollView>
+            {/* Top Headline Slider */}
+            {/* <TopHeadlineSlider newsList={newsList} /> */}
+
+            {/* Headline list */}
+            <HeadlineList newsList={newsList} />
+          </ScrollView>
+        )}
+      </View>
     </View>
   );
 };
-
-const Styles = StyleSheet.create({
-  appName: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: Color.primary,
-  },
-});
 
 export default Home;
