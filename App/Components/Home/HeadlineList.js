@@ -14,7 +14,6 @@ import Color from '../../Shared/Color';
 // ListItem 컴포넌트 (React.memo 사용)
 const ListItem = React.memo(({ item, onPress }) => (
   <View>
-    <View style={styles.separator} />
     <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
       <Image
         source={{
@@ -49,6 +48,7 @@ const HeadlineList = ({ newsList }) => {
           />
         )}
         disableVirtualization={false}
+        ItemSeparatorComponent={<View style={styles.separator} />}
         keyExtractor={(item) => item.title}
       />
     </View>

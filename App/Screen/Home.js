@@ -3,8 +3,7 @@ import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-virtualized-view';
 
-import CategoryTextSlider from '../Components/Home/CategoryTextSlider';
-import TopHeadlineSlider from '../Components/Home/TopHeadlineSlider';
+import CountryTextSlider from '../Components/Home/CountryTextSlider';
 import Color from '../Shared/Color';
 import HeadlineList from '../Components/Home/HeadlineList';
 import GlobalApi from '../Services/GlobalApi';
@@ -14,26 +13,17 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // getTopHeadline();
-    getNewsByCategory('latest');
+    getNewsByCountry('us');
   }, []);
 
-  const getNewsByCategory = async (category) => {
+  const getNewsByCountry = async (country) => {
     setLoading(true);
-    const result = await GlobalApi.getByCategory(category);
+    const result = await GlobalApi.getByCountry(country);
 
     if (result.ok) {
       setNewsList(result.data.articles);
     }
     setLoading(false);
-  };
-
-  const getTopHeadline = async () => {
-    const result = await GlobalApi.getTopHeadline;
-
-    if (result.ok) {
-      setNewsList(result.data.articles);
-    }
   };
 
   return (
@@ -54,16 +44,16 @@ const Home = () => {
               color: Color.title,
             }}
           >
-            Top News
+            Global News
           </Text>
-          <Ionicons name='notifications-outline' size={25} color='gray' />
+          {/* <Ionicons name='notifications-outline' size={25} color='gray' /> */}
         </View>
 
-        {/* Category List */}
-        <CategoryTextSlider
-          selectCategory={(category) => {
+        {/* Country List */}
+        <CountryTextSlider
+          selectCountry={(country) => {
             // console.log({ category });
-            getNewsByCategory(category);
+            getNewsByCountry(country);
           }}
         />
 
